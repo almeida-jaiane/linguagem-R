@@ -1,0 +1,211 @@
+##CONTEÚDO FACULDADE - UNIDADE 2
+
+# Execução de Operadores
+
+a = 10    # = ou <- atrela
+a+5       # adição
+a - 5     # subtração
+a * 5     # multiplicação
+a / 5     # divisão
+sqrt(a)   # raiz quadrada
+a^5       # potenciação
+a**5      # potenciação
+1:10      # traz 1 até 10
+
+
+# Chamada de Funções Numéricas
+
+abs(-3)                  # retorna o módulo
+sqrt(9)                  # retorna a raiz quadrada
+ceiling(3.75)            # retorna o teto
+floor(3.75)              # retorna o piso
+trunc(3.75)              # trunca
+round(3.75, digits=1)    # arredonda até 'n' casas decimais
+cos(30)                  # retorna o cosseno
+sin(30)                  # retorna o seno
+tan(30)                  # retorna a tangente
+log(2)                   # retorna o logaritmo natural
+log10(10)                # retorna o logaritmo na base 10
+exp(3)                   # retorna o valor exponencial
+max(x)                   # retorna o maior nº de um vetor
+min(x)                   # retorna o menor nº de um vetor
+mean(x)                  # retorna a média de um vetor
+sd(x)                    # retorna o desvio padrão de um vetor
+
+
+# Chamada de Funções de Texto
+
+substr('Meu primeiro exemplo', start=3, stop=10) # retorna o texto contido em x, da posição n1 até n2
+grep('a', c('banana', 'coco', 'pera', 'uva') , ignore.case=FALSE, fixed=FALSE) # procura o padrão em x e retorna os índices correspondentes. Se fixed = FALSE, o padrão é uma expressão regular. Se fixed = TRUE, o padrão é uma sequência de caracteres
+sub('a', 'x', 'uva', ignore.case=FALSE, fixed=TRUE) # procura o padrão em x e o substitui pelo texto de substituição . Se fixed = FALSE, o padrão é uma expressão regular. Se fixed = TRUE, o padrão é uma sequência de texto
+gsub('a', 'x', 'banana', ignore.case=FALSE, fixed=TRUE) # substitui todas as correspondências de uma sequência, se o parâmetro for um vetor de sequência, retorna um vetor de sequência com o mesmo comprimento e com os mesmos atributos (após possível substituição com o caractere).
+strsplit('banana', 'a') # divide os elementos de x em um vetor pelo texto contido em a posição split
+paste('pera', 'uva', sep=' - ') # concatena texto e adiciona separador
+toupper('banana') # transforma em maiúsculas
+tolower('BANANA') # transforma em minúsculas
+nchar('banana') # retorna a quantidade de caracteres
+
+
+# Vetores Atômicos
+
+valores_num = c(1,2.5,4.5)
+valores_num
+# Com sufixo L, você obtém um vetor de inteiros
+valores_int = c(2L, 3L, 6L)
+valores_int
+# Use TRUE e FALSE (ou T e F) para criar vetores lógicos
+valores_logicos = c(TRUE, FALSE, T, F)
+valores_logicos
+#Todo conteúdo que estiver dentro de aspas é considerado uma única palavra
+valores_chr = c('apenas', 'algumas', 'palavras perdidas')
+valores_chr
+# Ao tentar colocar no mesmo vetor tipos diferentes
+# o R converte automaticamente para o tipo mais apropriado
+erro = c(1.23, TRUE)
+erro
+
+
+# Vetores Listas
+
+x = list(1:3, 'a', c(TRUE, FALSE, TRUE), c(2.3, 5.9))
+str(x)
+
+
+# Matrizes
+
+# Define os nomes das linhas e colunas
+rownames = c('lin1', 'lin2', 'lin3', 'lin4')
+colnames = c('col1', 'col2', 'col3')
+# Elementos são organizados sequencialmente por linha
+p = matrix(c(3:14), nrow = 4, byrow = TRUE, dimnames = list(rownames, colnames))
+p
+
+
+# Arrays
+
+# Cria 2 vetores de tamanhos diferentes
+vetor1 = c(5,9,3)
+vetor2 = c(10,11,12,13,14,15)
+# Usa os vetores como entrada do array
+resultado = array(c(vetor1, vetor2), dim= c(3,3,2))
+resultado
+
+
+# Data Frames
+
+df = data.frame(x = 1:3, y = c('a', 'b', 'c'))
+str(df)
+# acesso a dados de uma coluna
+df$x
+df$y
+
+
+# Acesso a Dados do Vetor
+
+vetor = c(1, 3, 5, 7, 9) # Cria um vetor com 5 elementos
+vetor                    # Exibindo os dados de vetor
+vetor[2]                 # Acessando o elemento na posição 2 de vetor
+
+
+# Acesso a Dados de Forma Condicional
+
+vetor[vetor > 4]               # busca os elementos maiores que 4
+vetor[vetor > 4 & vetor < 9]   # busca os elementos maiores que 4 e menores que 9
+vetor[vetor < 4 | vetor > 7]   # busca os elementos menores que 4 e maiores que 7
+
+
+# Acesso a Dados de Forma Posicional
+
+vetor[c(1,2,5)]
+vetor[c(-1,-3)]
+
+
+# Operações Aritméticas
+
+# Entre vetores do mesmo tamanho
+v1 = c(3,8,4,5,0,11)
+v2 = c(4,11,0,8,1,2)
+
+v1+v2
+
+v1-v2
+
+v1*v2
+
+v1/v2
+
+# Entre vetores de tamanhos diferentes
+
+v1 = c(3,8,4,5,0,11)
+v2 = c(4,11)  # v2 irá se tornar c(4,11,4,11,4,11)
+
+v1+v2
+
+v1-v2
+
+v1*v2
+
+v1/v2
+
+
+# Ordenação de Vetores
+
+v = c(3,8,4,5,0,11,-9,304)
+sort(v)  # ordena os elementos do vetor
+sort(v, decreasing = TRUE) # ordena de forma inversa
+
+v = c('Vermelho', 'Azul', 'Amarelo', 'Branco')
+sort(v)   # vetores do tipo caractere ordena de maneira alfabética
+
+
+# Concatenação de Vetores
+
+vetor1 = c('a','b','c')
+vetor2 = c('d','e')
+c(vetor1,vetor2)
+
+
+# Acesso a Elementos em Matrizes
+
+matriz = matrix(1:9, nrow = 3) #cria a matriz com valores de 1 até 9
+matriz
+matriz[2,2]
+matriz[matriz > 5 & matriz < 9]
+
+
+# Operações Aritméticas em Matrizes
+
+#Criando 2 matrizes 2x3
+matriz1 = matrix(c(3,9,-1,4,2,6), nrow = 2)
+matriz2 = matrix(c(5,2,0,9,3,4), nrow = 2)
+matriz1
+matriz2
+
+#Operações
+matriz1+matriz2
+
+matriz1-matriz2
+
+matriz1*matriz2
+
+matriz1/matriz2
+
+
+
+#Concatenação de Matrizes com Vetores
+
+matriz = matrix(1:9, nrow = 3)
+vetor = c(10,11,12)
+
+rbind(matriz, vetor) #concatenação por linhas
+cbind(matriz, vetor) #concatenação por colunas
+
+
+
+# Concatenação de Matrizes com Matrizes
+
+matriz1 = matrix(1:9, nrow = 3)
+matriz2 = matrix(10:18, nrow = 3)
+
+rbind(matriz1, matriz2) # concatenação por linhas
+cbind(matriz1, matriz2) # concatenação por colunas
